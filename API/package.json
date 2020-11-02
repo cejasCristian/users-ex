@@ -1,0 +1,20 @@
+{
+  "name": "users-api",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js"
+  },
+  "author": "cristian",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.11"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "husky": "^4.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
