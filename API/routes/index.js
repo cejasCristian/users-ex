@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const usersController = require("../controllers/usersControllers");
+const credentialsController = require("../controllers/credentialsControllers");
 
 module.exports = function () {
   //add user data 'Post'
@@ -17,6 +18,15 @@ module.exports = function () {
 
   //delete users
   router.delete("/users/:id", usersController.deleteUser);
+
+  //signup
+  router.post("/signup", credentialsController.signUp);
+
+  //login
+  router.post("/login", credentialsController.logIn);
+
+  //user
+  router.get("/me", credentialsController.me);
 
   return router;
 };
