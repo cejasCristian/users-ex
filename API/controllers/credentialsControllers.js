@@ -63,3 +63,11 @@ exports.logIn = async (req, res) => {
   res.cookie("jwt", token);
   res.json({ auth: true, token });
 };
+
+exports.logOut = async (req, res) => {
+  const options = {
+    expiresIn: 10000,
+  };
+  res.cookie("jwt", "expiredtoken", options);
+  res.status(200).json({ status: "success" });
+};

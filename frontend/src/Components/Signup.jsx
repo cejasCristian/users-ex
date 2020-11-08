@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import axiosClient from "../config/axios";
+import { useHistory } from "react-router-dom";
 
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -43,6 +44,8 @@ const SignUp = () => {
     password: "",
   });
 
+  const history = useHistory();
+
   //API calls (see again this part!!!)
   const signUpUser = async (name, lastName, email, password) => {
     try {
@@ -50,6 +53,7 @@ const SignUp = () => {
       const body = { name, lastName, email, password };
       const res = await axiosClient.post("/signup", body, config);
       console.log(res);
+      history.push("./");
     } catch (error) {
       console.log(error);
     }

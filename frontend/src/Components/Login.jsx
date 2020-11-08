@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import axiosClient from "../config/axios";
+import { useHistory } from "react-router-dom";
 
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -48,7 +49,7 @@ const Login = () => {
  ***********************************************************************************
   */
 
-  const [auth, setAuth] = useState(false); //i will use this to validate the access
+  const history = useHistory();
 
   const logInUser = async (email, password) => {
     try {
@@ -56,15 +57,12 @@ const Login = () => {
       const body = { email, password };
       const res = await axiosClient.post("/login", body, config);
       console.log(res);
-      if (res.data.auth) {
-        setAuth(true);
-      }
+
+      history.push("./users");
     } catch (error) {
       console.log(error);
     }
   };
-
-  console.log(auth);
 
   const { email, password } = loginForm;
 

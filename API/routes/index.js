@@ -25,6 +25,9 @@ module.exports = function () {
   //login
   router.post("/login", credentialsController.logIn);
 
+  //logout
+  router.get("/logout", credentialsController.logOut);
+
   //user
   router.get("/me", credentialsController.me);
 
